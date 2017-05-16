@@ -1,5 +1,8 @@
+CFLAGS=-I/usr/local/Cellar/libusb/1.0.21/include
+LDFLAGS=-L/usr/local/lib/
+
 rpiboot: main.c
-	$(CC) -Wall -Wextra -g -o $@ $< -lusb-1.0
+	$(CC) ${CFLAGS} ${LDFLAGS} -Wall -Wextra -g -o $@ $< -lusb-1.0
 
 uninstall:
 	rm -f /usr/bin/rpiboot
